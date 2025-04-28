@@ -4,9 +4,9 @@
 ## Date: 
 
 ## Run this function as:
-## python 
+## python template_function.py
 
-def analyze_protein_sequence(seq: str) -> Dict[str, float]:
+def analyze_protein_sequence(protein_name: str = "Unknown", seq: str) -> Dict[str, float]:
     """
     Add here your description of the function
 
@@ -19,6 +19,7 @@ def analyze_protein_sequence(seq: str) -> Dict[str, float]:
     # ADD HERE YOUR CODE
     # code for length - code here
     return {
+        "Protein Name": protein_name,
         "Length": length
     }
 
@@ -28,14 +29,15 @@ def main():
     """
     # Example sequence
     test_seq = "MKWVTFISLLFLFSSAYSRGVFRRDTHKSEIAHRFKDLGE"
+    test_name = "Serum_Albumin_Human"
     
     # Run the analysis
-    results = analyze_protein_sequence(test_seq)
+    results = analyze_protein_sequence(test_name, test_seq)
     
     # Print results nicely
     print("Protein Sequence Analysis Results:")
-    for feature, value in results.items():
-        print(f"{feature}: {value}")
-
+    for key in ["Protein Name", "Length"]:
+        print(f"{key}: {results[key]}")
+        
 if __name__ == "__main__":
     main()
